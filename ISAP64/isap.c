@@ -305,10 +305,10 @@ int isap_dec(const unsigned char *key, const unsigned char *nonce,
   unsigned long long plaintext_len;
   int i, ret;
 
-  // Hitung MAC dari ciphertext dan ad
+  // INI BUAT NGITUNG MACCCCCCC
   isap_mac(key, nonce, ad, ad_len, ciphertext, ciphertext_len, computed_mac);
 
-  // Verifikasi MAC
+  // BUAT PERIP
   ret = 0;
   for (i = 0; i < CRYPTO_ABYTES; i++) {
     ret |= computed_mac[i] ^ mac[i];
@@ -327,9 +327,9 @@ int isap_dec(const unsigned char *key, const unsigned char *nonce,
 
 int main()
 {
-    u8 key[CRYPTO_KEYBYTES]; // kunci rahasia
-    u8 nonce[CRYPTO_NPUBBYTES]; // nonce (IV)
-    u8 ad[100]; // data tambahan
+    u8 key[CRYPTO_KEYBYTES] = "kelompok13"; // kunci rahasia
+    u8 nonce[CRYPTO_NPUBBYTES]= "13"; // nonce (IV)
+    u8 ad[100]= "ISAP"; // data tambahan
     u8 plaintext[100]; // teks yang akan dienkripsi
     u8 ciphertext[100]; // teks hasil enkripsi
     u8 decrypted[100]; // teks hasil dekripsi
@@ -338,16 +338,16 @@ int main()
     u64 ad_len, plaintext_len, ciphertext_len;
 
     // minta user untuk memasukkan kunci
-    printf("Masukkan kunci (sebanyak %d byte): ", CRYPTO_KEYBYTES);
-    fgets(key, CRYPTO_KEYBYTES, stdin);
+    //printf("Masukkan kunci (sebanyak %d byte): ", CRYPTO_KEYBYTES);
+    //fgets(key, CRYPTO_KEYBYTES, stdin);
     
     // minta user untuk memasukkan nonce
-    printf("Masukkan nonce (sebanyak %d byte): ", CRYPTO_NPUBBYTES);
-    fgets(nonce, CRYPTO_NPUBBYTES, stdin);
+    //printf("Masukkan nonce (sebanyak %d byte): ", CRYPTO_NPUBBYTES);
+    //fgets(nonce, CRYPTO_NPUBBYTES, stdin);
     
     // minta user untuk memasukkan data tambahan
-    printf("Masukkan data tambahan: ");
-    fgets(ad, 100, stdin);
+    //printf("Masukkan data tambahan: ");
+    //fgets(ad, 100, stdin);
     ad_len = strlen(ad);
     
     // minta user untuk memasukkan plaintext
